@@ -19,7 +19,7 @@ const app = new Application({
 
 document.body.appendChild(canvas);
 
-// little click and scoretext
+// cloudclick and score text
 
 const style: TextStyle = new TextStyle({
 	dropShadow: true,
@@ -74,16 +74,15 @@ function movePlayer(e: any) {
 // graphic shapes and onclick
 
 let score = 0;
+
 const scoreText: Text = new Text(`score: ${score}`, style2);
 scoreText.anchor.set(0.5);
 scoreText.x = app.view.width / 4;
 scoreText.y = 90;
 app.stage.addChild(scoreText);
 
-const graphos: Array<Container> = [];
-
-
 let counter = 0;
+
 function createGrapho(): void {
 
   const grapho = new Container();
@@ -91,8 +90,6 @@ function createGrapho(): void {
   const cloud: Sprite = Sprite.from("pixel_cloud_2.png");
   cloud.scale.set(0.2);
   cloud.anchor.set(0.5);
-
-  graphos.push(grapho);
 
   if (counter % 7 === 6) {
     cloud.tint = 0xFF69B4;
@@ -115,7 +112,6 @@ function createGrapho(): void {
   grapho.on("click", () => {
     score++;
     scoreText.text = `score: ${score}`;
-    graphos.splice(graphos.indexOf(grapho), 1);
     app.stage.removeChild(grapho);
   });
 
@@ -157,22 +153,3 @@ for (let i = 0; i < 100; i++) {
 }
 
 app.stage.addChildAt(particleContainer, 0);
-
-// container with clampy
-
-// const conty: Container = new Container();
-// app.stage.addChild(conty);
-
-// const clampy: Sprite = Sprite.from("clampy.png");
-// clampy.scale.set(0.5);
-// clampy.anchor.set(0.5);
-// clampy.x = app.view.width / 4;
-// clampy.y = app.view.height / 4;
-// conty.addChild(clampy);
-
-// function animate() {
-//   conty.rotation += 0.001;
-//   requestAnimationFrame(animate);
-// }
-
-// animate();
