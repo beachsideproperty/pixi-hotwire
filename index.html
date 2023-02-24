@@ -17,13 +17,24 @@
 		}
 
 		#pixi-content {
-			background: #d5f48e;
-			width: 100%;
-			height: 100%;
-		}
+  background: #d5f48e;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#pixi-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  z-index: 0;
+}
 	</style>
 
-</head>
+<script defer src="dist/bundle.js"></script></head>
 
 <body>
 	<noscript>Please enable JavaScript in your web browser to view this page.</noscript>
